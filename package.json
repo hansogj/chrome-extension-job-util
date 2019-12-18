@@ -1,0 +1,16 @@
+{
+  "name": "chrome-extension-job-util",
+  "version": "1.0.0",
+  "description": "for å holde meg oppdatert på timeføring",
+  "main": "jobutil.js",
+  "scripts": {
+    "tsc": "./node_modules/.bin/tsc",
+    "build": "rm ./dist/* && npm run tsc -c && cp manifest.json loader.js dist/."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.7.3"
+  }
+}

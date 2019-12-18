@@ -1,0 +1,13 @@
+{
+  "name": "JobUtil",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Kjekke funksjoner i konsulent sammenheng",
+  "web_accessible_resources": ["jobutil.js"],
+  "content_scripts": [
+    {
+    "matches": ["http://localhost:4200/*", "http://localhost:8000/*"],
+    "js": ["loader.js"]
+    }
+  ]
+}
