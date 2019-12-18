@@ -5,12 +5,27 @@
   "main": "jobutil.js",
   "scripts": {
     "tsc": "./node_modules/.bin/tsc",
-    "build": "rm ./dist/* && npm run tsc -c && cp manifest.json loader.js dist/."
+    "build:jobutil": "NODE_ENV=production webpack --config webpack.config.js",
+    "build": "rm -rf ./dist/* && npm run build:jobutil && cp assets/* dist/.",
+    "watch:contentscript-background": "NODE_ENV=development webpack --config webpack.config.js -w",
+    "watch": "npm-run-all --parallel watch:*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^3.7.3"
+    "@types/chrome": "0.0.91",
+    "@types/node": "^12.12.20",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.4.0",
+    "mini-css-extract-plugin": "^0.8.2",
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
+    "sass-loader": "^8.0.0",
+    "ts-node": "^8.5.4",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.3",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
   }
 }

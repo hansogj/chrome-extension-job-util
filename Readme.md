@@ -1,5 +1,3 @@
-# WINTID
+# JobUtil 
 
-for å holde meg oppdatert på timeføring
-
-
+Gir meg snarveier til timeføring og noen hjelpemetoder mv

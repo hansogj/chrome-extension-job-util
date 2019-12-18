@@ -1,0 +1,16 @@
+{
+  "name": "JobUtil",
+  "version": "1.0",
+  "permissions": ["tabs", "activeTab", "storage"],
+  "manifest_version": 2,
+  "description": "Kjekke funksjoner i konsulentsammenheng",
+  "web_accessible_resources": [ "jobutil.js", "jobutil.js.map" ],
+  "icons": { "128": "logo.png" },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost/*"],
+      "js": [ "loader.js"],
+      "all_frames": true
+    }
+  ]
+}
