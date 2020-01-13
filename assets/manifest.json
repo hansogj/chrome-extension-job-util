@@ -8,7 +8,7 @@
   "icons": { "128": "logo.png" },
   "content_scripts": [
     {
-      "matches": ["http://localhost/*"],
+      "matches": [ "<all_urls>" ],
       "js": [ "loader.js"],
       "all_frames": true
     }
