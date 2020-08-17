@@ -1,10 +1,7 @@
-import unitlink from './stbd/unitlink';
-import fmi from './stbd/fmi';
-import stbdTest from './stbd/stbd-test';
+import { sum, tid } from "./wintid";
 
-import { sum, tid } from './wintid';
-
+import stbd from './stbd'
 // @ts-ignore
-window['stbd'] = { unitlink, fmi, stbdTest };
+window["stbd"] = stbd;
 // @ts-ignore
-window['wintid'] = { sum, tid };
+window["wintid"] = { sum, tid };
