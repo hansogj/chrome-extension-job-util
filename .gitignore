@@ -35,3 +35,4 @@ node_modules
 istusers.ts
 
 dist/*
+**/users.ts
