@@ -1,31 +1,61 @@
 {
   "name": "chrome-extension-job-util",
-  "version": "1.0.0",
-  "description": "for å holde meg oppdatert på timeføring",
-  "main": "jobutil.js",
-  "scripts": {
-    "tsc": "./node_modules/.bin/tsc",
-    "build:jobutil": "NODE_ENV=production webpack --config webpack.config.js",
-    "build": "rm -rf ./dist/* && npm run build:jobutil && cp assets/* dist/.",
-    "watch:contentscript-background": "NODE_ENV=development webpack --config webpack.config.js -w",
-    "watch": "npm-run-all --parallel watch:*"
+  "version": "3.0.0",
+  "description": "Kjekke hjelpefunksjoner i konsulenttilværelsen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hansogj/chrome-extension-job-util.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Systek",
+    "Konsulent",
+    "Utils"
+  ],
+  "author": "hansogj@gmail.com",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hansogj/chrome-extension-job-util/issues"
+  },
+  "homepage": "https://github.com/hansogj/chrome-extension-job-util",
+  "scripts": {
+    "audit": "npx check-audit --registry https://registry.npmjs.org/",
+    "audit:resolve": "npx resolve-audit --registry=https://registry.npmjs.org",
+    "clean": "rm -rf dist && cpy manifest.json dist && cpy src/assets/* dist/assets",
+    "prebuild": "npm run clean",
+    "build:contentscript-background": "NODE_ENV=production webpack --config webpack.config.js",
+    "build:popup": "INLINE_RUNTIME_CHUNK=false npm run build --prefix src/popup && cd src/popup/build && cpy * /static/* ../../../dist/popup --parents",
+    "build": "npm-run-all build:*",
+    "prewatch": "npm run clean",
+    "watch:contentscript-background": "NODE_ENV=development webpack --config webpack.config.js -w",
+    "watch:popup": "npm run watch:build --prefix src/popup",
+    "watch": "npm-run-all --parallel watch:*",
+    "zip": "bestzip extension.zip dist/*"
+  },
   "devDependencies": {
-    "@types/chrome": "0.0.91",
-    "@types/node": "^12.12.20",
+    "@types/chrome": "0.0.115",
+    "@types/node": "14.0.13",
     "awesome-typescript-loader": "^5.2.1",
-    "css-loader": "^3.4.0",
-    "mini-css-extract-plugin": "^0.8.2",
-    "node-sass": "^4.13.0",
+    "bestzip": "2.1.5",
+    "cpy-cli": "^3.1.1",
+    "cra-build-watch": "3.0.0",
+    "css-loader": "3.2.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
-    "sass-loader": "^8.0.0",
-    "ts-node": "^8.5.4",
-    "tslint": "^5.20.1",
-    "typescript": "^3.7.3",
-    "webpack": "^4.41.3",
-    "webpack-cli": "^3.3.10"
+    "sass-loader": "8.0.0",
+    "ts-node": "8.5.4",
+    "tslint": "5.20.1",
+    "typescript": "^3.9.5",
+    "webpack": "4.42.0",
+    "webpack-cli": "3.3.10"
+  },
+  "dependencies": {
+    "@types/styled-components": "^5.1.1",
+    "array.defined": "^2.4.2",
+    "array.onempty": "^1.4.0",
+    "axios": "^0.19.2",
+    "npm-audit-resolver": "^2.2.0",
+    "serve": "^11.3.2",
+    "styled-components": "^5.1.1"
   }
 }

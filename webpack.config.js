@@ -3,17 +3,20 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { optimize } = require('webpack');
 const { join } = require('path');
 let prodPlugins = [];
+
 if (process.env.NODE_ENV === 'production') {
   prodPlugins.push(
     new optimize.AggressiveMergingPlugin(),
     new optimize.OccurrenceOrderPlugin()
   );
 }
+
 module.exports = {
   mode: process.env.NODE_ENV,
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   entry: {
-    jobutil: join(__dirname, 'src/index.ts'),
+    contentscript: join(__dirname, 'src/contentscript/contentscript.ts'),
+    background: join(__dirname, 'src/background/background.ts'),
   },
   output: {
     path: join(__dirname, 'dist'),
