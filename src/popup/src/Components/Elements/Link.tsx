@@ -15,14 +15,10 @@ export const LinkElem = styled.a`
 
 interface LinkProps {
     goto: string
-    copy: any
+    onClick: () => void
 }
-export default ({ goto, copy, children }: PropsWithChildren<LinkProps>) => (
-    <LinkElem
-        target="_blank"
-        onClick={() => copyStringToClipboard(copy)}
-        href={goto}
-    >
+export default ({ goto, onClick, children }: PropsWithChildren<LinkProps>) => (
+    <LinkElem target="_blank" onClick={onClick} href={goto}>
         {children}
     </LinkElem>
 )

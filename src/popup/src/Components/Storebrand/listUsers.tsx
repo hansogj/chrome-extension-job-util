@@ -25,7 +25,10 @@ export const ListRoutes = ({
     <>
         {routes.map((route) => (
             <Column key={`route-${route}`}>
-                <Link goto={goto(route, contractNumber)} copy={fnr}>
+                <Link
+                    goto={goto(route, contractNumber)}
+                    onClick={() => copyStringToClipboard(fnr)}
+                >
                     {capitalize(route)}
                 </Link>
             </Column>
@@ -40,7 +43,7 @@ export const RouteForContract = (props: ListUsersProps) => {
         <FormContainer>
             <Block>
                 <h3>Lag midlertidig kontraktslenke</h3>
-                <Row style={{ padding: `0 ${base}` }}>
+                <Row style={{ padding: `${base} 0` }}>
                     <Column nowrap style={{ maxWidth: '25%' }}>
                         <label>Kontraktsnummer:</label>
                         <Input
