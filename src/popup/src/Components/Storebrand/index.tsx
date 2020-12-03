@@ -6,9 +6,10 @@ import Fmi from './fmi'
 import SsulAux from './ssul-aux'
 import SsulWeb from './ssul-web'
 import Unitlink from './unitlink'
+import Lpn from './lpn'
 
 const title = 'Stbd'
-const views: PageComponent[] = [SsulAux, SsulWeb, Fmi, Unitlink]
+const views: PageComponent[] = [SsulAux, SsulWeb, Fmi, Unitlink, Lpn]
 
 const Component: FunctionComponent<{}> = () => {
     const [currentView, setView] = useState(SsulAux)

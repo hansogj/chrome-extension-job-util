@@ -28,9 +28,7 @@ const Component = () => {
             <h1>{title}</h1>
             <Env onChange={setEnv} port={port} https />
             <Cmid onChange={setCmid} />
-
             <hr />
-
             <ListUsers routes={products} goto={(product) => url(product)} />
         </>
     )

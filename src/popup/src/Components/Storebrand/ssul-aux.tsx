@@ -13,20 +13,16 @@ const Component = () => {
     const url = (...path: string[]) =>
         [env, 'link-selvbetjening', ...path].join('/')
 
+    const goto = (route: string, contractNumber: string) =>
+        url(contractNumber, route)
     return (
         <>
             <h1>{title}</h1>
             <Env onChange={setEnv} port={port} />
             <hr />
-            <RouteForContract
-                routes={routes}
-                goto={(route, contractNumber) => url(contractNumber, route)}
-            />
+            <RouteForContract {...{ routes, goto }} />
             <hr />
-            <ListUsers
-                routes={routes}
-                goto={(route, contractNumber) => url(contractNumber, route)}
-            />
+            <ListUsers {...{ routes, goto }} />
         </>
     )
 }
