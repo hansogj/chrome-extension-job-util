@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import { copyStringToClipboard } from '../../utils'
 import { colors } from '../styled'
 
 export const LinkElem = styled.a`
